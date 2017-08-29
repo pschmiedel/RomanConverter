@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div class="form-horizontal">
+    <fieldset>
+      <legend>Arabic Number to Roman Numeral Converter</legend>
+      <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+      <div class="row form-group" [class.has-error]="invalidNumber">
+        <label for="input" class="col-sm-3 control-label">Enter a number:</label>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <input #input type="number" class="form-control" (keyup.enter)="onConvert(input.value)" [disabled]="converting" />
+            <div class="input-group-btn">
+              <button class="btn" (click)="onConvert(input.value)" [disabled]="converting">OK</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <p class="form-control-static" *ngIf="converting"><i>Loading...</i></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>Converted Numbers</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Arabic</th>
+                <th>Roman</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="results.length == 0">
+                <td colspan="2"><i>No results yet</i></td>
+              </tr>
+              <tr *ngFor="let result of results" [class.prime]="result.is_prime">
+                <td>{{result.arabic}}</td>
+                <td class="roman">{{result.roman}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
