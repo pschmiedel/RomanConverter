@@ -4,6 +4,8 @@ A small web application that can be used to convert Arabic numbers into Roman nu
 
 ## How to start it
 
+First, make sure [Python 3](https://www.python.org/) and [Flask](http://flask.pocoo.org/) are installed (`pip install Flask`).
+
 To start the application, run the following in the `backend` directory:
 
 Linux:
